@@ -20,6 +20,9 @@ from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from urllib.parse import urlsplit
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import extras  # noqa: E402
+
 ROOT = Path(__file__).resolve().parent.parent
 BASELINE = ROOT / "data" / "link-baseline.json"
 UA = "Mozilla/5.0 (compatible; open-source-games-site link checker; +https://github.com/programmermars/open-source-games-site)"
@@ -37,6 +40,7 @@ def site_of(url):
 def collect():
     data = json.loads((ROOT / "data" / "games.json").read_text(encoding="utf-8"))
     play = json.loads((ROOT / "data" / "play.json").read_text(encoding="utf-8"))
+    extras.merge(data)
     links = {}
 
     def walk(entries):

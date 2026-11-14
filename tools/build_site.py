@@ -13,6 +13,7 @@ from pathlib import Path
 from urllib.parse import urlsplit
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import extras  # noqa: E402
 import pages  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -100,6 +101,7 @@ UI = {
     "play_sm": ("▶ 玩", "▶ Play"),
     "unofficial": ("非官方", "Unofficial"),
     "account": ("需注册", "Account needed"),
+    "added": ("本站补充", "Added here"),
     "keyboard": ("键盘", "Keyboard"),
     "mouse": ("鼠标", "Mouse"),
     "touch": ("触屏", "Touch"),
@@ -207,6 +209,8 @@ def entry_html(e, ctx, nested=False):
     head = [title]
     if e.get("lineage"):
         head.append(lineage_tag(e["lineage"]))
+    if e.get("extra"):
+        head.append(f'<span class="osg-lineage">{ui("added")}</span>')
     if e.get("play"):
         head.append(play_button(e["id"], e["play"], small=True))
     parts = [f'<div class="osg-entry-head">{"".join(head)}</div>']
@@ -306,6 +310,8 @@ def play_section(playable):
             tags.append(f'<span class="osg-lineage">{ui("unofficial")}</span>')
         if p.get("account"):
             tags.append(f'<span class="osg-lineage">{ui("account")}</span>')
+        if e.get("extra"):
+            tags.append(f'<span class="osg-lineage">{ui("added")}</span>')
         title = (
             f'<a class="osg-entry-title" href="{esc(e["href"])}">{esc(e["title"])}</a>'
             if e.get("href") else f'<span class="osg-entry-title">{esc(e["title"])}</span>'
@@ -418,6 +424,7 @@ def main():
     data = json.loads((ROOT / "data" / "games.json").read_text(encoding="utf-8"))
     hz = data.get("headings_zh", {})
     genres = data["genres"]
+    added = extras.merge(data)
     entries = list(all_entries(genres))
     playable = [e for e in entries if e.get("play")]
 
@@ -468,7 +475,7 @@ def main():
     subpages = {
         "privacy": ("隐私政策 · Privacy", pages.privacy()),
         "terms": ("使用条款 · Terms of use", pages.terms()),
-        "credits": ("致谢与许可 · Credits & licenses", pages.credits(esc, len(entries), commit[:7])),
+        "credits": ("致谢与许可 · Credits & licenses", pages.credits(esc, len(entries) - len(added), commit[:7], added)),
     }
     sub_html = {}
     for key, (title, (zh, en)) in subpages.items():

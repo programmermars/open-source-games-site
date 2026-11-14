@@ -1,0 +1,16 @@
+{
+ "about": "Games this site adds beyond bobeff/open-source-games. tools/extras.py merges them into the named genre; their play records live in play.json like any other.",
+ "entries": [
+  {
+   "id": "billiards",
+   "genre": "sport-games",
+   "title": "Billiards",
+   "href": "https://billiards.tailuge.workers.dev",
+   "sources": [
+    "https://github.com/tailuge/billiards"
+   ],
+   "desc_en": "Pool, snooker and carom billiards with realistic 3D physics, computer opponents and online multiplayer.",
+   "desc_zh": "物理效果逼真的 3D 台球：8 球、9 球、斯诺克和开伦，可以跟电脑或网友对打。"
+  }
+ ]
+}
