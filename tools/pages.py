@@ -15,6 +15,7 @@ PLAY_CREDITS = [
      ("代码与素材都是公有领域", "Code and assets are public domain")),
     ("athena-crisis", "Athena Crisis", "Nakazawa Tech", "https://github.com/nkzw-tech/athena-crisis", "MIT",
      ("品牌、美术、音效等素材另有授权，不可自由再分发", "Branding, art and sound are licensed separately and are not free to redistribute")),
+    ("billiards", "Billiards", "tailuge and contributors", "https://github.com/tailuge/billiards", "GPL-3.0", None),
     ("brogue-ce", "Brogue CE", "tmewett and contributors; browser port by brturn", "https://github.com/tmewett/BrogueCE", "AGPL-3.0",
      ("网页版是第三方非官方移植：github.com/brturn/BrogueCE", "The browser version is an unofficial third-party port: github.com/brturn/BrogueCE")),
     ("hypersomnia", "Hypersomnia", "Team Hypersomnia", "https://github.com/TeamHypersomnia/Hypersomnia", "AGPL-3.0", None),
@@ -118,7 +119,7 @@ def terms():
     return zh, en
 
 
-def credits(esc, entries_total, list_commit):
+def credits(esc, entries_total, list_commit, added=()):
     def rows(lang):
         out = []
         for _id, title, authors, src, code, extra in PLAY_CREDITS:
@@ -130,6 +131,11 @@ def credits(esc, entries_total, list_commit):
             )
         return "".join(out)
 
+    names = "、".join(esc(e["title"]) for e in added)
+    names_en = ", ".join(esc(e["title"]) for e in added)
+    added_zh = f"另有 {len(added)} 个游戏不在原清单里，由本站补充：{names}，标有「本站补充」。" if added else ""
+    added_en = f" This site added {len(added)} {'game' if len(added) == 1 else 'games'} that {'is' if len(added) == 1 else 'are'} not in the original list: {names_en}, marked “Added here”." if added else ""
+
     table = lambda lang, heads: (
         "<div class=\"table-wrap\"><table class=\"credits\"><thead><tr>"
         + "".join(f"<th scope=\"col\">{h}</th>" for h in heads)
@@ -139,7 +145,7 @@ def credits(esc, entries_total, list_commit):
     zh = f"""
 <p class="lead">这个网站站在许多开源作者的肩膀上。下面写明每一份内容来自谁、按什么许可使用。</p>
 <h2>游戏清单</h2>
-<p>全部 {entries_total} 个项目的名称、简介和链接来自 <a href="https://github.com/bobeff/open-source-games">bobeff/open-source-games</a>（版本 {esc(list_commit)}），由 bobeff 和<a href="https://github.com/bobeff/open-source-games/graphs/contributors">所有贡献者</a>整理，以 CC0 1.0 公有领域发布。中文简介由本站翻译。</p>
+<p>全部 {entries_total} 个项目的名称、简介和链接来自 <a href="https://github.com/bobeff/open-source-games">bobeff/open-source-games</a>（版本 {esc(list_commit)}），由 bobeff 和<a href="https://github.com/bobeff/open-source-games/graphs/contributors">所有贡献者</a>整理，以 CC0 1.0 公有领域发布。中文简介由本站翻译。{added_zh}</p>
 <h2>可以在浏览器里玩的游戏</h2>
 <p>这些游戏都由作者自己托管，本站只是在播放窗口中加载或链接过去，没有复制或修改它们的任何文件。</p>
 {table("zh", ["游戏", "作者", "源代码", "代码许可", "其他条款"])}
@@ -159,7 +165,7 @@ def credits(esc, entries_total, list_commit):
     en = f"""
 <p class="lead">This site stands on the work of many open-source authors. Here is who made each part and the license it is used under.</p>
 <h2>The game list</h2>
-<p>The names, descriptions and links of all {entries_total} projects come from <a href="https://github.com/bobeff/open-source-games">bobeff/open-source-games</a> (version {esc(list_commit)}), curated by bobeff and <a href="https://github.com/bobeff/open-source-games/graphs/contributors">all its contributors</a> and dedicated to the public domain under CC0 1.0. The Chinese descriptions are this site's translation.</p>
+<p>The names, descriptions and links of all {entries_total} projects come from <a href="https://github.com/bobeff/open-source-games">bobeff/open-source-games</a> (version {esc(list_commit)}), curated by bobeff and <a href="https://github.com/bobeff/open-source-games/graphs/contributors">all its contributors</a> and dedicated to the public domain under CC0 1.0. The Chinese descriptions are this site's translation.{added_en}</p>
 <h2>Games you can play in the browser</h2>
 <p>Their authors host every one of these games. This site loads them in its player or links to them, and copies or modifies none of their files.</p>
 {table("en", ["Game", "Authors", "Source", "Code license", "Other terms"])}

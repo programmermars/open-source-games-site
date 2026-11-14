@@ -323,7 +323,11 @@ def main():
     for g in genres:
         g["count"] = count_top(g)
 
-    missing = sorted(set(play) - seen_play)
+    extra_ids = set()
+    xp = ROOT / "data" / "extra.json"
+    if xp.exists():
+        extra_ids = {x["id"] for x in json.loads(xp.read_text(encoding="utf-8"))["entries"]}
+    missing = sorted(set(play) - seen_play - extra_ids)
     if missing:
         print("play.json ids not found in the list:", ", ".join(missing), file=sys.stderr)
 

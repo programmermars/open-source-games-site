@@ -23,6 +23,18 @@
    "zh": "体积很小，手机上可用屏幕按键操作。"
   }
  },
+ "billiards": {
+  "url": "https://billiards.tailuge.workers.dev/?ruletype=eightball&bot=ClawBreak",
+  "mode": "embed",
+  "controls": [
+   "mouse",
+   "touch"
+  ],
+  "note": {
+   "en": "8-ball against a computer opponent. The full game also has 9-ball, snooker and online play.",
+   "zh": "8 球，对手是电脑。完整游戏还有 9 球、斯诺克和在线对战。"
+  }
+ },
  "isocity": {
   "url": "https://iso-city.com",
   "mode": "embed",
