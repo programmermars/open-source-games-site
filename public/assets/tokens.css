@@ -1,0 +1,70 @@
+/* Open Source Games tokens, generated from design/tokens.json by tools/build_site.py */
+:root {
+  --paper: #f3f4f8;
+  --paper-raised: #ffffff;
+  --paper-sunken: #e6e8f0;
+  --rule: #c5c9d8;
+  --rule-strong: #767b98;
+  --ink: #0c0f2e;
+  --ink-muted: #4b5172;
+  --play: var(--ega-blue);
+  --source: #006a6a;
+  --highlight: var(--ega-yellow);
+  --on-highlight: #0c0f2e;
+  --focus: var(--ega-blue);
+  --shadow-ink: #0c0f2e;
+  --ega-blue: #0000aa;
+  --ega-cyan: #00aaaa;
+  --ega-bright-cyan: #55ffff;
+  --ega-yellow: #ffff55;
+  --shadow-dialog: 4px 4px 0 0 #0c0f2e;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --radius-0: 0;
+  --radius-1: 2px;
+  --border-hairline: 1px solid;
+  --border-frame: 4px double;
+  --measure: 68ch;
+  --page-width: 880px;
+  --font-sans: "Archivo", "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", "Noto Sans CJK SC", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0b0d26;
+    --paper-raised: #151839;
+    --paper-sunken: #070819;
+    --rule: #2c3160;
+    --rule-strong: #6a70a6;
+    --ink: #e7e8f3;
+    --ink-muted: #a6aacb;
+    --play: #a3a3ff;
+    --source: var(--ega-bright-cyan);
+    --on-highlight: #0b0d26;
+    --focus: var(--ega-yellow);
+    --shadow-ink: #000000;
+    --shadow-dialog: 4px 4px 0 0 #000000;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0b0d26;
+  --paper-raised: #151839;
+  --paper-sunken: #070819;
+  --rule: #2c3160;
+  --rule-strong: #6a70a6;
+  --ink: #e7e8f3;
+  --ink-muted: #a6aacb;
+  --play: #a3a3ff;
+  --source: var(--ega-bright-cyan);
+  --on-highlight: #0b0d26;
+  --focus: var(--ega-yellow);
+  --shadow-ink: #000000;
+  --shadow-dialog: 4px 4px 0 0 #000000;
+  color-scheme: dark;
+}

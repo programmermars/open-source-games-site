@@ -1,0 +1,121 @@
+{
+ "ancient-beast": {
+  "url": "https://ancientbeast.com/play/",
+  "mode": "embed",
+  "controls": [
+   "mouse",
+   "touch"
+  ],
+  "note": {
+   "en": "Online turn-based battles against other players.",
+   "zh": "在线回合制对战，对手是其他玩家。"
+  }
+ },
+ "anarch": {
+  "url": "https://drummyfish.gitlab.io/anarch/bin/web/anarch.html",
+  "mode": "embed",
+  "controls": [
+   "keyboard",
+   "touch"
+  ],
+  "note": {
+   "en": "Tiny download. On-screen buttons work on phones.",
+   "zh": "体积很小，手机上可用屏幕按键操作。"
+  }
+ },
+ "isocity": {
+  "url": "https://iso-city.com",
+  "mode": "embed",
+  "controls": [
+   "mouse",
+   "touch"
+  ],
+  "note": {
+   "en": "Touch-friendly; has co-op and example cities.",
+   "zh": "支持触屏，有合作模式和示例城市。"
+  }
+ },
+ "micropolisjs": {
+  "url": "https://www.graememcc.co.uk/micropolisJS/",
+  "mode": "embed",
+  "controls": [
+   "mouse"
+  ],
+  "note": {
+   "en": "Built for mouse; not suited to touch screens.",
+   "zh": "为鼠标设计，不适合触屏。"
+  }
+ },
+ "server-survival": {
+  "url": "https://pshenok.github.io/server-survival/",
+  "mode": "embed",
+  "controls": [
+   "mouse",
+   "keyboard"
+  ],
+  "note": {
+   "en": "Survival and campaign modes.",
+   "zh": "有生存模式和战役模式。"
+  }
+ },
+ "whatajong": {
+  "url": "https://whatajong.com",
+  "mode": "tab",
+  "controls": [
+   "mouse"
+  ],
+  "note": {
+   "en": "Mahjong solitaire with a twist. Opens in its own tab; it does not run inside another page.",
+   "zh": "带新玩法的麻将接龙。它无法在别的网页里运行，所以在新标签打开。"
+  }
+ },
+ "hypersomnia": {
+  "url": "https://play.hypersomnia.io/",
+  "mode": "tab",
+  "controls": [
+   "keyboard",
+   "mouse"
+  ],
+  "note": {
+   "en": "Online multiplayer; downloads about 30 MB. Opens in its own tab because it needs a cross-origin-isolated page.",
+   "zh": "在线多人；首次约下载 30 MB。需要独立页面运行，所以在新标签打开。"
+  }
+ },
+ "wipeout": {
+  "url": "https://phoboslab.org/wipegame/",
+  "mode": "tab",
+  "controls": [
+   "keyboard"
+  ],
+  "note": {
+   "en": "Keyboard only. Choose Minimal (about 11 MB) or Full (about 144 MB) data, hosted by the author.",
+   "zh": "只能用键盘。可选精简版数据（约 11 MB）或完整版（约 144 MB），由作者托管。"
+  }
+ },
+ "brogue-ce": {
+  "url": "https://brturn.github.io/BrogueCE/",
+  "mode": "tab",
+  "controls": [
+   "keyboard",
+   "mouse"
+  ],
+  "unofficial": true,
+  "note": {
+   "en": "An unofficial browser port by a third party, not by the Brogue CE team.",
+   "zh": "第三方做的非官方网页移植，不是 Brogue CE 团队发布的。"
+  }
+ },
+ "athena-crisis": {
+  "url": "https://app.athenacrisis.com/register",
+  "mode": "tab",
+  "controls": [
+   "mouse",
+   "touch"
+  ],
+  "account": true,
+  "note": {
+   "en": "The free demo needs an account.",
+   "zh": "免费试玩需要注册账号。"
+  }
+ }
+}
