@@ -54,12 +54,12 @@ show the English text in both languages until `data/zh.json` has them.
 Live at <https://games.comanta.com.my>. `wrangler.jsonc` serves `public/` as static assets with no
 Worker code, on the custom domain only (no `*.workers.dev` copy).
 
-```bash
-npx wrangler@4.156.2 deploy
-```
+Pushing to `main` deploys automatically: `.github/workflows/deploy.yml` runs
+`npx wrangler@4.156.2 deploy` when `public/`, `wrangler.jsonc` or the workflow changes. It needs
+the repository secret `CLOUDFLARE_API_TOKEN`, a token made from the "Edit Cloudflare Workers"
+template with the `comanta.com.my` zone. To deploy by hand, run the same command with Wrangler
+logged in (`npx wrangler login`).
 
-- Needs Wrangler logged in (`npx wrangler login`) or `CLOUDFLARE_API_TOKEN` set to a token made
-  from the "Edit Cloudflare Workers" template.
 - Static asset requests are free and don't count toward the Workers request limit.
 - `public/_headers` sets the Content-Security-Policy; its `frame-src` lists exactly the sites
   the player may embed, generated from `play.json`. Wrangler applies it and doesn't publish the file.
