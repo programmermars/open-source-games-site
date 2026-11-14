@@ -1,0 +1,16 @@
+{
+  // Static site on Cloudflare Workers (static assets only, no Worker code).
+  // Deploy: npx wrangler@4.156.2 deploy
+  "$schema": "https://unpkg.com/wrangler@4.156.2/config-schema.json",
+  "name": "open-source-games",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./public"
+  },
+  // One public address only: no *.workers.dev copy, no preview URLs.
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [
+    { "pattern": "games.comanta.com.my", "custom_domain": true }
+  ]
+}
